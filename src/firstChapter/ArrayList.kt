@@ -3,8 +3,8 @@ package firstChapter
 class ArrayList() {
     private val _defaultCapacity = 50
     private var currentCapacity = this._defaultCapacity
-    var length = 0
-    lateinit var arrayList: IntArray
+    private var length = 0
+    private lateinit var arrayList: IntArray
 
     constructor(newCapacity: Int): this() {
         this.currentCapacity = newCapacity
@@ -53,5 +53,22 @@ class ArrayList() {
             index
         }
     }
+
+    fun size(): Int {
+        return length
+    }
+
+    fun isEmpty(): Boolean {
+        return arrayList.isEmpty()
+    }
+
+    fun get(index: Int): Int {
+        return -1
+    }
+
+    fun set(index: Int, elem: Int) {}
+
+    // see section "Performance of ArrayList" in https://codenuclear.com/how-arraylist-works-internally-java/
+    fun iterator() {}
 
 }
