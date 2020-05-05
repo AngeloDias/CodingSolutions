@@ -63,12 +63,21 @@ class ArrayList() {
     }
 
     fun get(index: Int): Int {
+        if(index in 0 until length) {
+            return arrayList[index]
+        }
+
         return -1
     }
 
     fun set(index: Int, elem: Int) {}
 
     // see section "Performance of ArrayList" in https://codenuclear.com/how-arraylist-works-internally-java/
-    fun iterator() {}
+    fun iterator() {
+        // to implement a simple listing of the elements in list
+        for(i in arrayList.indices) {
+            print("Value ${i+1}: ${arrayList[i]}")
+        }
+    }
 
 }
