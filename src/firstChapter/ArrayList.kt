@@ -4,7 +4,11 @@ class ArrayList() {
     private val _defaultCapacity = 50
     private var currentCapacity = this._defaultCapacity
     private var length = 0
-    private lateinit var arrayList: IntArray
+    private var arrayList: IntArray
+
+    init {
+        this.arrayList = intArrayOf()
+    }
 
     constructor(newCapacity: Int): this() {
         this.currentCapacity = newCapacity
@@ -76,7 +80,7 @@ class ArrayList() {
     fun iterator() {
         // to implement a simple listing of the elements in list
         for(i in arrayList.indices) {
-            print("Value ${i+1}: ${arrayList[i]}")
+            print("Value ${i+1}: ${arrayList[i]}\n")
         }
     }
 
