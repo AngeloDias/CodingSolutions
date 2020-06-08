@@ -1,6 +1,6 @@
 package firstChapter
 
-class CheckPermutation(private val stringA: String, private val stringB: String) {
+class CheckPermutation(val stringA: String, val stringB: String) {
 
     fun stringsArePermutations(): Boolean {
         val sortedSetB = stringB.toSortedSet()
@@ -9,15 +9,19 @@ class CheckPermutation(private val stringA: String, private val stringB: String)
             stringA.toSortedSet().forEach {
                 val first = sortedSetB.first()
 
+                print("First: $first - it: $it\n")
+
                 if(first != it) {
                     return false
                 }
 
                 sortedSetB.remove(first)
             }
+
+            return true
         }
 
-        return true
+        return false
     }
 
 }

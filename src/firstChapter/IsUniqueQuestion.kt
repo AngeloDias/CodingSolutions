@@ -1,7 +1,8 @@
 package firstChapter
 
-class IsUniqueQuestion(private val unique: String) {
+class IsUniqueQuestion(uniqueStr: String) {
     private val charHashMap = HashMap<Char, Char>()
+    var unique: String = uniqueStr
 
     fun printArray() {
         for (i in unique) {

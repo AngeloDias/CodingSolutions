@@ -33,6 +33,6 @@ fun main() {
 
 //    print(checkPermutation.stringsArePermutations())
 
-    print("New str: ${urlify.changeBlankSpacesToSymbols(" Mr John Smith", 13)}")
+//    print("New str: ${urlify.changeBlankSpacesToSymbols(" Mr John Smith", 13)}")
 
 }
