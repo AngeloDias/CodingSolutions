@@ -27,17 +27,41 @@ class UrlifyTest {
     fun changeBlankSpacesToSymbolsTest() {
         var url = urlify.changeBlankSpacesToSymbols(strToUrl, stLength)
 
-        assertEquals(url, finalUrl)
+        assertEquals(finalUrl, url)
 
         url = "${url}l"
 
-        assertNotEquals(url, finalUrl)
+        assertNotEquals(finalUrl, url)
 
         strToUrl = ""
 
         url = urlify.changeBlankSpacesToSymbols(strToUrl, 0)
 
-        assertNotEquals(url, finalUrl)
+        assertNotEquals(finalUrl, url)
+    }
+
+    @Test
+    fun changeBlankToSymbolsIterationTest() {
+        strToUrl = "String with simple spaces "
+        finalUrl = "String${placeholder}with${placeholder}simple${placeholder}spaces${placeholder}"
+        var url = urlify.changeBlankToSymbolsIteration(strToUrl)
+
+        assertEquals(finalUrl, url)
+
+        strToUrl = "String with simple spaces"
+        finalUrl = "String${placeholder}with${placeholder}simple${placeholder}spaces"
+
+        assertEquals(finalUrl, urlify.changeBlankToSymbolsIteration(strToUrl))
+
+        url = "${url}l"
+
+        assertNotEquals(finalUrl, url)
+
+        strToUrl = ""
+
+        url = urlify.changeBlankSpacesToSymbols(strToUrl, 0)
+
+        assertNotEquals(finalUrl, url)
     }
 
 }

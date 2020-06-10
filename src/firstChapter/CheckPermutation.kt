@@ -9,8 +9,6 @@ class CheckPermutation(val stringA: String, val stringB: String) {
             stringA.toSortedSet().forEach {
                 val first = sortedSetB.first()
 
-                print("First: $first - it: $it\n")
-
                 if(first != it) {
                     return false
                 }
