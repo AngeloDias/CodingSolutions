@@ -2,6 +2,7 @@ package tests
 
 import firstChapter.IsUniqueQuestion
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import kotlin.test.*
@@ -14,9 +15,14 @@ class IsUniqueQuestionTest {
 
     @BeforeAll
     fun setup() {
-        uniqueStr = "1abcAuüBC"
+        uniqueStr = "1abcAuBC"
         isUniqueQuestion = IsUniqueQuestion(uniqueStr)
-        notUniqueStr = "12asdjlçnm,oiuqa"
+        notUniqueStr = "12asdjlnm,oiuqa"
+    }
+
+    @BeforeEach
+    fun defineUniqueStr() {
+        isUniqueQuestion.unique = uniqueStr
     }
 
     @Test
@@ -26,13 +32,31 @@ class IsUniqueQuestionTest {
     }
 
     @Test
-    fun checkIsUniqueTest() {
-        assertEquals(uniqueStr, isUniqueQuestion.unique)
-        assertTrue(isUniqueQuestion.checkIsUnique())
+    fun checkIsUniqueWithHashMapTest() {
+        assertTrue(isUniqueQuestion.checkIsUniqueWithHashMap())
 
         isUniqueQuestion.unique = notUniqueStr
 
-        assertFalse(isUniqueQuestion.checkIsUnique())
+        assertFalse(isUniqueQuestion.checkIsUniqueWithHashMap())
+    }
+
+    @Test
+    fun checkIsUniqueWithBooleanArrayTest() {
+        assertTrue(isUniqueQuestion.checkIsUniqueWithBooleanArray())
+
+        isUniqueQuestion.unique = notUniqueStr
+
+        assertFalse(isUniqueQuestion.checkIsUniqueWithBooleanArray())
+    }
+
+    @Test
+    fun checkIsUniqueWithBitTest() {
+        isUniqueQuestion.unique = "absfeq"
+        assertTrue(isUniqueQuestion.checkIsUniqueWithBits())
+
+        isUniqueQuestion.unique = "banasqwi"
+
+        assertFalse(isUniqueQuestion.checkIsUniqueWithBits())
     }
 
     @Test
