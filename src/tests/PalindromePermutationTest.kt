@@ -78,4 +78,31 @@ class PalindromePermutationTest {
         assertFalse(palindromePermutation.checkPalindromePermutationByCountingChars("jaaajj"))
     }
 
+    @Test
+    fun createBitVectorInIntFromPhraseTest() {
+        assertEquals(1, palindromePermutation.createBitVectorInIntFromPhrase("abB"))
+        assertEquals(3, palindromePermutation.createBitVectorInIntFromPhrase("ab"))
+        assertEquals(3, palindromePermutation.createBitVectorInIntFromPhrase("abBb"))
+
+        assertEquals(0, palindromePermutation.createBitVectorInIntFromPhrase("aa"))
+        assertEquals(0, palindromePermutation.createBitVectorInIntFromPhrase(""))
+    }
+
+    @Test
+    fun checkPalindromePermutationFromBitVectorTest() {
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector("a"))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector("aa"))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector("aba"))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector("aba "))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector(" aba"))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector(" aba "))
+        assertTrue(palindromePermutation.checkPalindromePermutationFromBitVector("A aBa A"))
+
+        assertFalse(palindromePermutation.checkPalindromePermutationFromBitVector(" "))
+        assertFalse(palindromePermutation.checkPalindromePermutationFromBitVector(""))
+        assertFalse(palindromePermutation.checkPalindromePermutationFromBitVector(" jaaajj"))
+        assertFalse(palindromePermutation.checkPalindromePermutationFromBitVector(" jaaajj "))
+        assertFalse(palindromePermutation.checkPalindromePermutationFromBitVector("jaaajj"))
+    }
+
 }

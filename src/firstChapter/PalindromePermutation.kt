@@ -1,5 +1,7 @@
 package firstChapter
 
+import kotlin.collections.HashMap
+
 class PalindromePermutation {
 
     fun checkPalindromeAlreadyOrdered(phrase: String): Boolean {
@@ -26,6 +28,13 @@ class PalindromePermutation {
         return (cleanPhrase.isEmpty() xor true) && countOddsRepeatingLessThanTwice(countingChars)
     }
 
+    fun checkPalindromePermutationFromBitVector(phrase: String): Boolean {
+        val cleanPhrase = phrase.replace(" ", "")
+        val bitVector = createBitVectorInIntFromPhrase(cleanPhrase)
+
+        return (cleanPhrase.isEmpty() xor true) && checkFinalNumberWasToggledEvenOrOddTimes(bitVector)
+    }
+
     fun checkCharsInPhrase(cleanPhrase: String): HashMap<Char, Int> {
         val countingChars = HashMap<Char, Int>()
 
@@ -42,6 +51,25 @@ class PalindromePermutation {
         return countingChars
     }
 
+    fun createBitVectorInIntFromPhrase(cleanPhrase: String): Int {
+        var retBitNum = 0
+
+        cleanPhrase.forEach {
+            val charLowerAfterOffset = it.toLowerCase() - 'a'
+            val mask = 1 shl charLowerAfterOffset // saving number in binary representation
+
+            // checking if the number was already evaluated in binary representation
+            retBitNum = if((retBitNum and mask) == 0) {
+                retBitNum or mask // saving the new number to the bit vector
+            } else {
+                retBitNum and mask.inv()
+            }
+
+        }
+
+        return retBitNum
+    }
+
     fun countOddsRepeatingLessThanTwice(countingChars: HashMap<Char, Int>): Boolean {
         var countOdds = 0
 
@@ -56,6 +84,10 @@ class PalindromePermutation {
         }
 
         return true
+    }
+
+    fun checkFinalNumberWasToggledEvenOrOddTimes(bitVector: Int): Boolean {
+        return (bitVector and (bitVector - 1)) == 0
     }
 
 }
