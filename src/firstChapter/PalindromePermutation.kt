@@ -86,6 +86,9 @@ class PalindromePermutation {
         return true
     }
 
+    /**
+     * The return, if true, means that it is an even number, otherwise an odd number.
+     * */
     fun checkFinalNumberWasToggledEvenOrOddTimes(bitVector: Int): Boolean {
         return (bitVector and (bitVector - 1)) == 0
     }
