@@ -24,6 +24,8 @@ class OneAwayTest {
 
         assertFalse(oneAway.zeroOrOneEditAway("pales", "bakes"))
         assertFalse(oneAway.zeroOrOneEditAway("pake", "bales"))
+        assertFalse(oneAway.zeroOrOneEditAway("pak", "bales"))
+        assertFalse(oneAway.zeroOrOneEditAway("paks", "bales"))
     }
 
     @Test
@@ -34,6 +36,8 @@ class OneAwayTest {
 
         assertFalse(oneAway.compareCharsDiffLength("pales", "bakes"))
         assertFalse(oneAway.compareCharsDiffLength("pales", "pake"))
+        assertFalse(oneAway.compareCharsDiffLength("pak", "bales"))
+        assertFalse(oneAway.compareCharsDiffLength("paks", "bales"))
     }
 
     @Test
@@ -47,6 +51,8 @@ class OneAwayTest {
         assertFalse(oneAway.checkStringWasEditedAtMostOneAway("pales", "bakes"))
         assertFalse(oneAway.checkStringWasEditedAtMostOneAway("palesp", "bpakes"))
         assertFalse(oneAway.checkStringWasEditedAtMostOneAway("ap", "pa"))
+        assertFalse(oneAway.checkStringWasEditedAtMostOneAway("pak", "bales"))
+        assertFalse(oneAway.checkStringWasEditedAtMostOneAway("paks", "bales"))
     }
 
 }
