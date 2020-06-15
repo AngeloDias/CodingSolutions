@@ -15,20 +15,4 @@ class RotateMatrix {
         return matrix
     }
 
-    fun generateMatrix(n: Int): Array<Array<Int>> {
-        var matrix = arrayOf<Array<Int>>()
-
-        for(i in 0..n) {
-            var array = arrayOf<Int>()
-
-            for(j in 0..n) {
-                array += (0..100).random()
-            }
-
-            matrix += array
-        }
-
-        return matrix
-    }
-
 }

@@ -16,7 +16,7 @@ class RotateMatrixTest {
 
     @Test
     fun rotateMatrix90DegreesTest() {
-        var matrix = rotateMatrix.generateMatrix(2)
+        var matrix = Utils.generateMatrixOfInt(2, 2)
     }
 
 }
