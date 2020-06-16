@@ -5,6 +5,10 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import sideImplementations.MatrixOperations
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
+import kotlin.test.assertTrue
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MatrixOperationsTest {
@@ -45,6 +49,44 @@ class MatrixOperationsTest {
 
         Assertions
             .assertArrayEquals(expected, matrixOperations.scalarMultiplication(a, 3))
+    }
+
+    @Test
+    fun matricesAreEqualsTest() {
+        var a = arrayOf(arrayOf(20, 78), arrayOf(-30, -50))
+        var b = arrayOf(arrayOf(-30, -50), arrayOf(35, 5))
+
+        assertFalse(matrixOperations.matricesAreEquals(a, b))
+        assertFalse(matrixOperations.matricesAreEquals(a, arrayOf()))
+        assertFalse(matrixOperations.matricesAreEquals(arrayOf(), b))
+
+        a = arrayOf(arrayOf(2, -50), arrayOf(3, 5))
+        b = arrayOf(arrayOf(2, -50), arrayOf(3, 5))
+
+        assertTrue(matrixOperations.matricesAreEquals(a, b))
+
+        a = arrayOf(arrayOf(3))
+        b = arrayOf(arrayOf(3))
+        assertTrue(matrixOperations.matricesAreEquals(a, b))
+    }
+
+    @Test
+    fun mainDiagonalSumTest() {
+        var a = arrayOf(arrayOf(-30, -50), arrayOf(35, 5))
+
+        assertEquals(-25, matrixOperations.diagonalSum(a, true))
+        assertEquals(3, matrixOperations.diagonalSum(arrayOf(arrayOf(3)), true))
+        assertEquals(0, matrixOperations.diagonalSum(arrayOf(), true))
+        assertEquals(-15, matrixOperations.diagonalSum(a, false))
+
+        a = arrayOf(arrayOf(-30, -50, 7), arrayOf(35, 5, 2), arrayOf(3, -1, 5))
+
+        assertEquals(-20, matrixOperations.diagonalSum(a, true))
+        assertEquals(15, matrixOperations.diagonalSum(a, false))
+
+        assertNotEquals(15, matrixOperations.diagonalSum(a, true))
+        assertNotEquals(7, matrixOperations.diagonalSum(a, true))
+        assertNotEquals(-20, matrixOperations.diagonalSum(a, false))
     }
 
 }

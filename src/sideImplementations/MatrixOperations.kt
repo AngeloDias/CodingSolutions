@@ -75,4 +75,37 @@ class MatrixOperations {
         return resultingMatrix
     }
 
+    fun matricesAreEquals(a: Array<Array<Int>>, b: Array<Array<Int>>): Boolean {
+        if((a.isNotEmpty() && b.isNotEmpty() && (a.size != b.size || a[0].size != b[0].size)) ||
+            (a.isEmpty() || b.isEmpty())) {
+            return false
+        }
+
+        for (i in a.indices) {
+            for (j in a[i].indices) {
+                if(a[i][j] != b[i][j]) {
+                    return false
+                }
+            }
+        }
+
+        return true
+    }
+
+    fun diagonalSum(a: Array<Array<Int>>, isMainDiagonal: Boolean): Int {
+        var sum = 0
+
+        for (i in a.indices) {
+            for (j in a[i].indices) {
+                if(isMainDiagonal && i == j) {
+                    sum += a[i][j]
+                } else if(!isMainDiagonal && i+j == a.size-1) {
+                    sum += a[i][j]
+                }
+            }
+        }
+
+        return sum
+    }
+
 }
