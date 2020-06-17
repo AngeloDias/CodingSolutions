@@ -89,4 +89,27 @@ class MatrixOperationsTest {
         assertNotEquals(-20, matrixOperations.diagonalSum(a, false))
     }
 
+    @Test
+    fun sumRowsAndColumnsValuesTest() {
+        var matrix = arrayOf(arrayOf(-30, -50), arrayOf(35, 5))
+        var sum = matrixOperations.sumRowsAndColumnsValues(matrix)
+        var row = sum["rowsSum"]
+        var column = sum["columnsSum"]
+        var expectedRow = arrayOf(-80, 40)
+        var expectedColumn = arrayOf(5, -45)
+
+        Assertions.assertArrayEquals(expectedRow, row)
+        Assertions.assertArrayEquals(expectedColumn, column)
+
+        matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(7, 8, 9))
+        sum = matrixOperations.sumRowsAndColumnsValues(matrix)
+        row = sum["rowsSum"]
+        column = sum["columnsSum"]
+        expectedRow = arrayOf(6, 15, 24)
+        expectedColumn = arrayOf(12, 15, 18)
+
+        Assertions.assertArrayEquals(expectedRow, row)
+        Assertions.assertArrayEquals(expectedColumn, column)
+    }
+
 }

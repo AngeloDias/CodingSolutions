@@ -108,4 +108,31 @@ class MatrixOperations {
         return sum
     }
 
+    fun sumRowsAndColumnsValues(matrix: Array<Array<Int>>): HashMap<String, Array<Int>> {
+        val sum = HashMap<String, Array<Int>>()
+        var rowsSum = arrayOf<Int>()
+        var columnsSum = arrayOf<Int>()
+
+        for(i in matrix.indices) {
+            var r = 0
+
+            for(j in matrix[i].indices) {
+                r += matrix[i][j]
+
+                if(columnsSum.size < matrix.size) {
+                    columnsSum += matrix[i][j]
+                } else {
+                    columnsSum[j] += matrix[i][j]
+                }
+            }
+
+            rowsSum += r
+        }
+
+        sum["rowsSum"] = rowsSum
+        sum["columnsSum"] = columnsSum
+
+        return sum
+    }
+
 }
