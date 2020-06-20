@@ -18,4 +18,25 @@ class RemoveDups() {
         return dupsRemoved
     }
 
+    fun removeDupsUsingPointers(unsortedList: LinkedList<Int>): LinkedList<Int> {
+        var runner: Int
+
+        for(current in unsortedList.indices) {
+            runner = current + 1
+
+            while(runner < unsortedList.size) {
+                if(unsortedList[runner] == unsortedList[current]) {
+                    unsortedList.removeAt(runner)
+
+                    runner += 1
+                }
+
+                runner += 1
+            }
+
+        }
+
+        return unsortedList
+    }
+
 }
