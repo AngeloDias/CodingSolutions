@@ -111,5 +111,71 @@ class MatrixOperationsTest {
         Assertions.assertArrayEquals(expectedRow, row)
         Assertions.assertArrayEquals(expectedColumn, column)
     }
+    
+    @Test
+    fun interchangeDiagonalsTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(7, 8, 9))
+        var expected = arrayOf(arrayOf(3, 2, 1), arrayOf(4, 5, 6), arrayOf(9, 8, 7))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.interchangeDiagonals(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+        expected = arrayOf(arrayOf(2, 1), arrayOf(5, 4))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.interchangeDiagonals(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2, 3, 100), arrayOf(4, 5, 6, 200),
+            arrayOf(7, 8, 9, 300), arrayOf(10, 11, 12, 400))
+
+        expected = arrayOf(arrayOf(100, 2, 3, 1), arrayOf(4, 6, 5, 200),
+            arrayOf(7, 9, 8, 300), arrayOf(400, 11, 12, 10))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.interchangeDiagonals(matrix))
+
+        matrix = arrayOf(arrayOf(1))
+        expected = arrayOf(arrayOf(1))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.interchangeDiagonals(matrix))
+    }
+
+    @Test
+    fun isUpperTriangularTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, 0, 9))
+
+        assertTrue(matrixOperations.isUpperTriangular(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(0, 5))
+
+        assertTrue(matrixOperations.isUpperTriangular(matrix))
+        assertTrue(matrixOperations.isUpperTriangular(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertFalse(matrixOperations.isUpperTriangular(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertFalse(matrixOperations.isUpperTriangular(matrix))
+    }
+
+    @Test
+    fun isUpperTriangularReducedIterationsTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, 0, 9))
+
+        assertTrue(matrixOperations.isUpperTriangularReducedIterations(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(0, 5))
+
+        assertTrue(matrixOperations.isUpperTriangularReducedIterations(matrix))
+        assertTrue(matrixOperations.isUpperTriangularReducedIterations(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertFalse(matrixOperations.isUpperTriangularReducedIterations(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertFalse(matrixOperations.isUpperTriangularReducedIterations(matrix))
+    }
 
 }

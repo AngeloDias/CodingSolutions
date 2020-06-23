@@ -135,4 +135,43 @@ class MatrixOperations {
         return sum
     }
 
+    fun interchangeDiagonals(matrix: Array<Array<Int>>): Array<Array<Int>> {
+
+        for(i in matrix.indices) {
+            val mainDiagonalElement = matrix[i][i]
+            matrix[i][i] = matrix[i][matrix.size - 1 - i]
+            matrix[i][matrix.size - 1 - i] = mainDiagonalElement
+        }
+
+        return matrix
+    }
+
+    fun isUpperTriangular(matrix: Array<Array<Int>>): Boolean {
+        for(i in matrix.indices) {
+            for(j in matrix[i].indices) {
+                if(i > j && matrix[i][j] != 0) {
+                    return false
+                }
+            }
+        }
+
+        return true
+    }
+
+    fun isUpperTriangularReducedIterations(matrix: Array<Array<Int>>): Boolean {
+        for(i in matrix.indices) {
+
+            if(i > 0) {
+                for(j in 0 until i) {
+                    if(i > j && matrix[i][j] != 0) {
+                        return false
+                    }
+                }
+            }
+
+        }
+
+        return true
+    }
+
 }
