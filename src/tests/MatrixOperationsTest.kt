@@ -178,4 +178,110 @@ class MatrixOperationsTest {
         assertFalse(matrixOperations.isUpperTriangularReducedIterations(matrix))
     }
 
+    @Test
+    fun isLowerTriangularTest() {
+        var matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(1, 5, 0), arrayOf(1, 7, 9))
+
+        assertTrue(matrixOperations.isLowerTriangular(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(4, 5))
+
+        assertTrue(matrixOperations.isLowerTriangular(matrix))
+        assertTrue(matrixOperations.isLowerTriangular(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertFalse(matrixOperations.isLowerTriangular(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertFalse(matrixOperations.isLowerTriangular(matrix))
+    }
+
+    @Test
+    fun upperTriangularSumTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, 0, 9))
+
+        assertEquals(11, matrixOperations.upperTriangularSum(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(0, 5))
+
+        assertEquals(2, matrixOperations.upperTriangularSum(matrix))
+        assertEquals(0, matrixOperations.upperTriangularSum(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertNotEquals(3, matrixOperations.upperTriangularSum(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertNotEquals(6, matrixOperations.upperTriangularSum(matrix))
+    }
+
+    @Test
+    fun lowerTriangularSumTest() {
+        var matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(1, 5, 0), arrayOf(1, 7, 9))
+
+        assertEquals(9, matrixOperations.lowerTriangularSum(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(4, 5))
+
+        assertEquals(4, matrixOperations.lowerTriangularSum(matrix))
+        assertEquals(0, matrixOperations.lowerTriangularSum(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertNotEquals(9, matrixOperations.lowerTriangularSum(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertNotEquals(13, matrixOperations.lowerTriangularSum(matrix))
+    }
+
+    @Test
+    fun transposeTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(7, 8, 9))
+        var expected = arrayOf(arrayOf(1, 4, 7), arrayOf(2, 5, 8), arrayOf(3, 6, 9))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.transpose(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+        expected = arrayOf(arrayOf(1, 4), arrayOf(2, 5))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.transpose(matrix))
+
+        matrix = arrayOf(arrayOf(1, 2, 3, 100), arrayOf(4, 5, 6, 200),
+            arrayOf(7, 8, 9, 300), arrayOf(10, 11, 12, 400))
+
+        expected = arrayOf(arrayOf(1, 4, 7, 10), arrayOf(2, 5, 8, 11),
+            arrayOf(3, 6, 9, 12), arrayOf(100, 200, 300, 400))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.transpose(matrix))
+
+        matrix = arrayOf(arrayOf(1))
+        expected = arrayOf(arrayOf(1))
+
+        Assertions.assertArrayEquals(expected, matrixOperations.transpose(matrix))
+    }
+
+    @Test
+    fun determinantOfMatrixTest() {
+        var matrix = arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(7, 8, 9))
+
+        assertEquals(-60, matrixOperations.determinantOf(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(4, 5))
+
+        assertEquals(5, matrixOperations.determinantOf(matrix))
+        assertEquals(0, matrixOperations.determinantOf(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(7, 2), arrayOf(4, 5))
+
+        assertEquals(27, matrixOperations.determinantOf(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0, 3), arrayOf(0, 5, 6), arrayOf(0, -1, 9))
+
+        assertNotEquals(7, matrixOperations.determinantOf(matrix))
+    }
+
 }

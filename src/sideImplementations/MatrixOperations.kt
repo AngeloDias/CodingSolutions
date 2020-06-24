@@ -161,17 +161,87 @@ class MatrixOperations {
     fun isUpperTriangularReducedIterations(matrix: Array<Array<Int>>): Boolean {
         for(i in matrix.indices) {
 
-            if(i > 0) {
-                for(j in 0 until i) {
-                    if(i > j && matrix[i][j] != 0) {
-                        return false
-                    }
+            for(j in 0 until i) {
+                if(i > j && matrix[i][j] != 0) {
+                    return false
                 }
             }
 
         }
 
         return true
+    }
+
+    fun isLowerTriangular(matrix: Array<Array<Int>>): Boolean {
+        for(i in matrix.indices) {
+
+            for(j in (i + 1) until matrix[i].size) {
+                if(matrix[i][j] != 0) {
+                    return false
+                }
+            }
+
+        }
+
+        return true
+    }
+
+    fun upperTriangularSum(matrix: Array<Array<Int>>): Int {
+        var sum = 0
+
+        for(i in matrix.indices) {
+            for(j in (i + 1) until matrix[i].size) {
+                sum += matrix[i][j]
+            }
+        }
+
+        return sum
+    }
+
+    fun lowerTriangularSum(matrix: Array<Array<Int>>): Int {
+        var sum = 0
+
+        for(i in matrix.indices) {
+            for(j in 0 until i) {
+                sum += matrix[i][j]
+            }
+        }
+
+        return sum
+    }
+
+    fun transpose(matrix: Array<Array<Int>>): Array<Array<Int>> {
+        for(i in matrix.indices) {
+            for (j in i until matrix[i].size) {
+                val currentVal = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = currentVal
+            }
+        }
+
+        return matrix
+    }
+
+    fun determinantOf(matrix: Array<Array<Int>>): Int {
+        var mainDiagonal = 1
+        var minorDiagonal = 1
+
+        if(matrix.size % 2 == 1) {
+            val mid = matrix.size/2
+            minorDiagonal *= matrix[mid][mid]
+        }
+
+        for (i in matrix.indices) {
+            for (j in matrix[i].indices) {
+                if(i == j) {
+                    mainDiagonal *= matrix[i][j]
+                } else if(i+j == matrix.size-1) {
+                    minorDiagonal *= matrix[i][j]
+                }
+            }
+        }
+
+        return mainDiagonal - minorDiagonal
     }
 
 }
