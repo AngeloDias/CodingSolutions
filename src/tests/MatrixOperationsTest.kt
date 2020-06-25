@@ -284,4 +284,69 @@ class MatrixOperationsTest {
         assertNotEquals(7, matrixOperations.determinantOf(matrix))
     }
 
+    @Test
+    fun isIdentityTest() {
+        var matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 0), arrayOf(0, 0, 1))
+
+        assertTrue(matrixOperations.isIdentity(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(0, 1))
+
+        assertTrue(matrixOperations.isIdentity(matrix))
+        assertTrue(matrixOperations.isIdentity(arrayOf(arrayOf(1))))
+
+        matrix = arrayOf(arrayOf(1, 2), arrayOf(4, 5))
+
+        assertFalse(matrixOperations.isIdentity(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 0), arrayOf(0, 1, 1))
+
+        assertFalse(matrixOperations.isIdentity(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 0), arrayOf(0, 0, 0))
+
+        assertFalse(matrixOperations.isIdentity(matrix))
+    }
+
+    @Test
+    fun isSparseTest() {
+        var matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 0), arrayOf(0, 0, 1))
+
+        assertTrue(matrixOperations.isSparse(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(0, 1))
+
+        assertTrue(matrixOperations.isSparse(matrix))
+        assertTrue(matrixOperations.isSparse(arrayOf(arrayOf(0))))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 7), arrayOf(0, 1, 1))
+
+        assertFalse(matrixOperations.isSparse(matrix))
+
+        matrix = arrayOf(arrayOf(1, 20, 3, 5), arrayOf(0, 1, 4, 0), arrayOf(0, 0, 0, 1), arrayOf(0, 0, 1, 7))
+
+        assertFalse(matrixOperations.isSparse(matrix))
+        assertFalse(matrixOperations.isSparse(arrayOf(arrayOf(1))))
+    }
+
+    @Test
+    fun isSymmetricTest() {
+        var matrix = arrayOf(arrayOf(1, 0, 29), arrayOf(0, 1, 0), arrayOf(29, 0, 1))
+
+        assertTrue(matrixOperations.isSymmetric(matrix))
+
+        matrix = arrayOf(arrayOf(1, 0), arrayOf(0, 1))
+
+        assertTrue(matrixOperations.isSymmetric(matrix))
+        assertTrue(matrixOperations.isSymmetric(arrayOf(arrayOf(0))))
+
+        matrix = arrayOf(arrayOf(1, 0, 0), arrayOf(0, 1, 7), arrayOf(0, 1, 1))
+
+        assertFalse(matrixOperations.isSymmetric(matrix))
+
+        matrix = arrayOf(arrayOf(1, 20, 3, 5), arrayOf(20, 1, 4, 0), arrayOf(3, 4, 1, 7), arrayOf(5, 0, 8, 1))
+
+        assertFalse(matrixOperations.isSymmetric(matrix))
+    }
+
 }

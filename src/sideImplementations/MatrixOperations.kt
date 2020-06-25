@@ -1,5 +1,9 @@
 package sideImplementations
 
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.roundToInt
+
 class MatrixOperations {
 
     fun multiplyMatrices(a: Array<Array<Int>>, b: Array<Array<Int>>):
@@ -242,6 +246,50 @@ class MatrixOperations {
         }
 
         return mainDiagonal - minorDiagonal
+    }
+
+    fun isIdentity(matrix: Array<Array<Int>>): Boolean {
+
+        for (i in matrix.indices) {
+            for (j in matrix[i].indices) {
+                if((i == j && matrix[i][j] != 1) || (i != j && matrix[i][j] != 0)) {
+                    return false
+                }
+            }
+        }
+
+        return true
+    }
+
+    fun isSparse(matrix: Array<Array<Int>>): Boolean {
+        var countNumbers = 0
+        val param = floor((matrix.size * matrix[0].size)/2.0).roundToInt()
+
+        for (i in matrix.indices) {
+            for (j in matrix[i].indices) {
+                if(matrix[i][j] != 0) {
+                    countNumbers += 1
+                }
+
+                if(countNumbers > param) {
+                    return false
+                }
+            }
+        }
+
+        return true
+    }
+
+    fun isSymmetric(matrix: Array<Array<Int>>): Boolean {
+        for(i in matrix.indices) {
+            for (j in i until matrix[i].size) {
+                if(matrix[i][j] != matrix[j][i]) {
+                    return false
+                }
+            }
+        }
+
+        return true
     }
 
 }

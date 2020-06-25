@@ -3,18 +3,32 @@ package sideImplementations
 class OddOccurrencesInArray {
     var unpairedValue = -1
 
+    fun bitwiseSolution(A: IntArray): Int {
+        var retBitNum = 0
+
+        A.forEach {
+            retBitNum = retBitNum xor it
+        }
+
+        return retBitNum
+    }
+
     fun solution(A: IntArray): Int {
-        var unpairedVal = -1
-        val numbers = ArrayList<Int>()
+        val freqNumbers = HashMap<Int, Int>()
 
         for(i in A.indices) {
-            if(!numbers.contains(A[i])) {
-                numbers.add(A[i])
-                unpairedVal = A[i]
+            if(!freqNumbers.contains(A[i])) {
+                freqNumbers[A[i]] = 1
+            } else {
+                freqNumbers[A[i]] = freqNumbers[A[i]]!!.plus(1)
             }
         }
 
-        return unpairedVal
+        var key = -1
+
+        freqNumbers.mapKeys { if(it.value == 1) key = it.key }
+
+        return key
     }
 
     fun generateArrayInput(size: Int): IntArray {
