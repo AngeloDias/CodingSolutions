@@ -55,4 +55,16 @@ class BitwiseOperatorsTest {
         assertFalse(bitwiseOperators.isSetThe(1, 0))
     }
 
+    @Test
+    fun setTheTest() {
+        assertEquals(13, bitwiseOperators.setToOneThe(0, 12))
+        assertEquals(3, bitwiseOperators.setToOneThe(1, 1))
+        assertEquals(1073741824, bitwiseOperators.setToOneThe(30, 0))
+        assertEquals(-1, bitwiseOperators.setToOneThe(0, -2))
+
+        assertNotEquals(0, bitwiseOperators.setToOneThe(0, 0))
+        assertNotEquals(2147483647, bitwiseOperators.setToOneThe(32, 0))
+        assertNotEquals(2147483647, bitwiseOperators.setToOneThe(-1, 0))
+    }
+
 }

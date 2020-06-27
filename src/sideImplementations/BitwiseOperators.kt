@@ -28,4 +28,12 @@ class BitwiseOperators {
         return false
     }
 
+    fun setToOneThe(nthBit: Int, fromNumber: Int): Int{
+        if(nthBit < 0) {
+            return fromNumber
+        }
+
+        return (1 shl nthBit) or fromNumber
+    }
+
 }
