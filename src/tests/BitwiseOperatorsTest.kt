@@ -67,4 +67,22 @@ class BitwiseOperatorsTest {
         assertNotEquals(2147483647, bitwiseOperators.setToOneThe(-1, 0))
     }
 
+    @Test
+    fun getHighestOrderSetBitPositionTest() {
+        assertEquals(-1, bitwiseOperators.getHighestOrderSetBitPosition(0))
+        assertEquals(0, bitwiseOperators.getHighestOrderSetBitPosition(1))
+        assertEquals(30, bitwiseOperators.getHighestOrderSetBitPosition(2147483647))
+        assertEquals(31, bitwiseOperators.getHighestOrderSetBitPosition(-2))
+        assertEquals(1, bitwiseOperators.getHighestOrderSetBitPosition(2))
+    }
+
+    @Test
+    fun getLowestOrderSetBitPositionTest() {
+        assertEquals(-1, bitwiseOperators.getLowestOrderSetBitPosition(0))
+        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPosition(1))
+        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPosition(2147483647))
+        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPosition(-2))
+        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPosition(2))
+    }
+
 }

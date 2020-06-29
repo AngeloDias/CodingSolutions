@@ -13,6 +13,23 @@ class OddOccurrencesInArray {
         return retBitNum
     }
 
+    fun bitwiseSolutionUsingMyXor(A: IntArray): Int {
+        var retBitNum = 0
+
+        A.forEach {
+            retBitNum = myBitwiseXorFrom(retBitNum, it)
+        }
+
+        return retBitNum
+    }
+
+    private fun myBitwiseXorFrom(numberA: Int, withNumberB: Int): Int {
+        val firstOperand = numberA and withNumberB.inv()
+        val secondOperand = numberA.inv() and withNumberB
+
+        return firstOperand or secondOperand
+    }
+
     fun solution(A: IntArray): Int {
         val freqNumbers = HashMap<Int, Int>()
 

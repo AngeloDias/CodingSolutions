@@ -77,4 +77,35 @@ class OddOccurrencesInArrayTest {
         assertEquals(12, oddOccurrencesInArray.bitwiseSolution(array))
     }
 
+    @Test
+    fun bitwiseSolutionUsingMyXorTest() {
+        var array = intArrayOf(4, 5, 4, 4, 4, 5, 12, 5, 9, 5, 9)
+
+        assertEquals(12, oddOccurrencesInArray.bitwiseSolutionUsingMyXor(array))
+
+        array = oddOccurrencesInArray.generateArrayInput(201)
+
+        assertEquals(oddOccurrencesInArray.unpairedValue, oddOccurrencesInArray.bitwiseSolutionUsingMyXor(array))
+
+        array = oddOccurrencesInArray.generateArrayInput(601)
+
+        assertEquals(oddOccurrencesInArray.unpairedValue, oddOccurrencesInArray.bitwiseSolutionUsingMyXor(array))
+
+//        array = oddOccurrencesInArray.generateArrayInput(100003)
+//
+//        assertEquals(oddOccurrencesInArray.unpairedValue, oddOccurrencesInArray.bitwiseSolution(array))
+
+//        array = oddOccurrencesInArray.generateArrayInput(999999)
+
+//        assertEquals(oddOccurrencesInArray.unpairedValue, oddOccurrencesInArray.bitwiseSolution(array))
+
+        array = intArrayOf(12, 1, 1)
+
+        assertEquals(12, oddOccurrencesInArray.bitwiseSolutionUsingMyXor(array))
+
+        array = intArrayOf(12)
+
+        assertEquals(12, oddOccurrencesInArray.bitwiseSolutionUsingMyXor(array))
+    }
+
 }
