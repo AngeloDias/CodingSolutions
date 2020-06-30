@@ -69,20 +69,30 @@ class BitwiseOperatorsTest {
 
     @Test
     fun getHighestOrderSetBitPositionTest() {
-        assertEquals(-1, bitwiseOperators.getHighestOrderSetBitPosition(0))
-        assertEquals(0, bitwiseOperators.getHighestOrderSetBitPosition(1))
-        assertEquals(30, bitwiseOperators.getHighestOrderSetBitPosition(2147483647))
-        assertEquals(31, bitwiseOperators.getHighestOrderSetBitPosition(-2))
-        assertEquals(1, bitwiseOperators.getHighestOrderSetBitPosition(2))
+        assertEquals(-1, bitwiseOperators.getHighestOrderSetBitPositionFrom(0))
+        assertEquals(0, bitwiseOperators.getHighestOrderSetBitPositionFrom(1))
+        assertEquals(30, bitwiseOperators.getHighestOrderSetBitPositionFrom(2147483647))
+        assertEquals(31, bitwiseOperators.getHighestOrderSetBitPositionFrom(-2))
+        assertEquals(1, bitwiseOperators.getHighestOrderSetBitPositionFrom(2))
     }
 
     @Test
     fun getLowestOrderSetBitPositionTest() {
-        assertEquals(-1, bitwiseOperators.getLowestOrderSetBitPosition(0))
-        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPosition(1))
-        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPosition(2147483647))
-        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPosition(-2))
-        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPosition(2))
+        assertEquals(-1, bitwiseOperators.getLowestOrderSetBitPositionFrom(0))
+        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPositionFrom(1))
+        assertEquals(0, bitwiseOperators.getLowestOrderSetBitPositionFrom(2147483647))
+        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPositionFrom(-2))
+        assertEquals(1, bitwiseOperators.getLowestOrderSetBitPositionFrom(2))
+    }
+
+    @Test
+    fun countTrailingZerosFromTest() {
+        assertEquals(0, bitwiseOperators.countTrailingZerosFrom(0))
+        assertEquals(1, bitwiseOperators.countTrailingZerosFrom(1010))
+        assertEquals(4, bitwiseOperators.countTrailingZerosFrom(80))
+        assertEquals(0, bitwiseOperators.countTrailingZerosFrom(-1))
+        assertEquals(1, bitwiseOperators.countTrailingZerosFrom(-2))
+        assertEquals(0, bitwiseOperators.countTrailingZerosFrom(1))
     }
 
 }

@@ -36,8 +36,8 @@ class BitwiseOperators {
         return (1 shl nthBit) or fromNumber
     }
 
-    fun getHighestOrderSetBitPosition(fromNumber: Int): Int {
-        if(fromNumber == 0) {
+    fun getHighestOrderSetBitPositionFrom(number: Int): Int {
+        if(number == 0) {
             return -1
         }
 
@@ -45,7 +45,7 @@ class BitwiseOperators {
 
         for(i in 0 until Int.SIZE_BITS) {
 
-            if ((fromNumber shr i) and 1 == 1) {
+            if ((number shr i) and 1 == 1) {
                 position = i
             }
         }
@@ -53,18 +53,31 @@ class BitwiseOperators {
         return position
     }
 
-    fun getLowestOrderSetBitPosition(fromNumber: Int): Int {
-        if(fromNumber == 0) {
+    fun getLowestOrderSetBitPositionFrom(number: Int): Int {
+        if(number == 0) {
             return -1
         }
 
         for(i in 0 until Int.SIZE_BITS) {
-            if ((fromNumber shr i) and 1 == 1) {
+            if ((number shr i) and 1 == 1) {
                 return i
             }
         }
 
         return -1
+    }
+
+    fun countTrailingZerosFrom(number: Int): Int{
+        var count = 0
+        var aux = number
+
+        while (aux != 0 && (aux and 1) == 0) {
+            count += 1
+
+            aux = aux shr 1
+        }
+
+        return count
     }
 
 }
