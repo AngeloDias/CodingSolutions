@@ -80,4 +80,18 @@ class BitwiseOperators {
         return count
     }
 
+    fun countLeadingZerosFrom(number: Int): Int {
+        val msb = 1 shl (Int.SIZE_BITS - 1)
+
+        for (i in 0 until Int.SIZE_BITS) {
+
+            if((number shl i) and msb == msb) {
+                return i
+            }
+
+        }
+
+        return 0
+    }
+
 }

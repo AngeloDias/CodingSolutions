@@ -95,4 +95,14 @@ class BitwiseOperatorsTest {
         assertEquals(0, bitwiseOperators.countTrailingZerosFrom(1))
     }
 
+    @Test
+    fun countLeadingZerosFromTest() {
+        assertEquals(0, bitwiseOperators.countLeadingZerosFrom(0))
+        assertEquals(22, bitwiseOperators.countLeadingZerosFrom(1010))
+        assertEquals(25, bitwiseOperators.countLeadingZerosFrom(80))
+        assertEquals(0, bitwiseOperators.countLeadingZerosFrom(-1))
+        assertEquals(0, bitwiseOperators.countLeadingZerosFrom(-2))
+        assertEquals(31, bitwiseOperators.countLeadingZerosFrom(1))
+    }
+
 }
