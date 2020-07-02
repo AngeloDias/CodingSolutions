@@ -105,4 +105,14 @@ class BitwiseOperatorsTest {
         assertEquals(31, bitwiseOperators.countLeadingZerosFrom(1))
     }
 
+    @Test
+    fun flipBitsFromTest() {
+        assertEquals(-1, bitwiseOperators.flipBitsFrom(0))
+        assertEquals(-1011, bitwiseOperators.flipBitsFrom(1010))
+        assertEquals(-81, bitwiseOperators.flipBitsFrom(80))
+        assertEquals(0, bitwiseOperators.flipBitsFrom(-1))
+        assertEquals(1, bitwiseOperators.flipBitsFrom(-2))
+        assertEquals(-2, bitwiseOperators.flipBitsFrom(1))
+    }
+
 }

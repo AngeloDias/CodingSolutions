@@ -94,4 +94,8 @@ class BitwiseOperators {
         return 0
     }
 
+    fun flipBitsFrom(number: Int): Int {
+        return number.inv()
+    }
+
 }
