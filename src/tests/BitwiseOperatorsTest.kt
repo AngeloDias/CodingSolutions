@@ -4,10 +4,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import sideImplementations.BitwiseOperators
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertNotEquals
-import kotlin.test.assertTrue
+import kotlin.test.*
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class BitwiseOperatorsTest {
@@ -113,6 +110,57 @@ class BitwiseOperatorsTest {
         assertEquals(0, bitwiseOperators.flipBitsFrom(-1))
         assertEquals(1, bitwiseOperators.flipBitsFrom(-2))
         assertEquals(-2, bitwiseOperators.flipBitsFrom(1))
+    }
+
+    @Test
+    fun countZerosAndOnesFromTest() {
+        val expectedZerosAndOnes = BitwiseOperators.ZerosAndOnes()
+        var result = bitwiseOperators.countZerosAndOnesFrom(0)
+        expectedZerosAndOnes.ones = 0
+        expectedZerosAndOnes.zeros = 32
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
+
+        expectedZerosAndOnes.ones = 7
+        expectedZerosAndOnes.zeros = 25
+
+        result = bitwiseOperators.countZerosAndOnesFrom(1010)
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
+
+        expectedZerosAndOnes.ones = 2
+        expectedZerosAndOnes.zeros = 30
+
+        result = bitwiseOperators.countZerosAndOnesFrom(80)
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
+
+        expectedZerosAndOnes.ones = 32
+        expectedZerosAndOnes.zeros = 0
+
+        result = bitwiseOperators.countZerosAndOnesFrom(-1)
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
+
+        expectedZerosAndOnes.ones = 31
+        expectedZerosAndOnes.zeros = 1
+
+        result = bitwiseOperators.countZerosAndOnesFrom(-2)
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
+
+        expectedZerosAndOnes.ones = 1
+        expectedZerosAndOnes.zeros = 31
+
+        result = bitwiseOperators.countZerosAndOnesFrom(1)
+
+        assertEquals(expectedZerosAndOnes.zeros, result.zeros)
+        assertEquals(expectedZerosAndOnes.ones, result.ones)
     }
 
 }

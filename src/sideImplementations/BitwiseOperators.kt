@@ -98,4 +98,23 @@ class BitwiseOperators {
         return number.inv()
     }
 
+    fun countZerosAndOnesFrom(number: Int): ZerosAndOnes {
+        val zerosAndOnes = ZerosAndOnes()
+
+        for(i in 0 until Int.SIZE_BITS) {
+            if((number shr i) and 1 == 1) {
+                zerosAndOnes.ones += 1
+            } else {
+                zerosAndOnes.zeros += 1
+            }
+        }
+
+        return zerosAndOnes
+    }
+
+    class ZerosAndOnes {
+        var zeros = 0
+        var ones = 0
+    }
+
 }
