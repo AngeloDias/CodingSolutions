@@ -117,4 +117,42 @@ class BitwiseOperators {
         var ones = 0
     }
 
+    fun bitwiseRotate(number: Int, fromRotationNumber: Int): RotatedNumber {
+        if(fromRotationNumber < 0) {
+            throw Error("Invalid number")
+        }
+
+        val rotatedNumber = RotatedNumber(number)
+
+        for(i in 0 until fromRotationNumber) {
+            // left rotation
+            if(isTheMostSignificantBitSet(rotatedNumber.leftRotated)) {
+                rotatedNumber.leftRotated = rotatedNumber.leftRotated shl 1
+                rotatedNumber.leftRotated = rotatedNumber.leftRotated or 1
+            } else {
+                rotatedNumber.leftRotated = rotatedNumber.leftRotated shl 1
+            }
+
+            // right rotation
+            if(isTheLeastSignificantBitSet(rotatedNumber.rightRotated)) {
+                rotatedNumber.rightRotated = rotatedNumber.rightRotated shr 1
+                rotatedNumber.rightRotated = rotatedNumber.rightRotated or (1 shl (Int.SIZE_BITS- 1))
+            } else {
+                rotatedNumber.rightRotated = rotatedNumber.rightRotated ushr 1
+            }
+        }
+
+        return rotatedNumber
+    }
+
+    class RotatedNumber() {
+        var leftRotated = 0
+        var rightRotated = 0
+
+        constructor(number: Int): this() {
+            leftRotated = number
+            rightRotated = number
+        }
+    }
+
 }

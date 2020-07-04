@@ -162,5 +162,30 @@ class BitwiseOperatorsTest {
         assertEquals(expectedZerosAndOnes.zeros, result.zeros)
         assertEquals(expectedZerosAndOnes.ones, result.ones)
     }
+    
+    @Test
+    fun bitwiseRotateTest() {
+        val expectedRotatedNumber = BitwiseOperators.RotatedNumber()
+        var rotationResult = bitwiseOperators.bitwiseRotate(-15, 2)
+        expectedRotatedNumber.leftRotated = -57
+        expectedRotatedNumber.rightRotated = 2147483644
+
+        assertEquals(expectedRotatedNumber.leftRotated, rotationResult.leftRotated)
+        assertEquals(expectedRotatedNumber.rightRotated, rotationResult.rightRotated)
+
+        rotationResult = bitwiseOperators.bitwiseRotate(0, 2)
+        expectedRotatedNumber.leftRotated = 0
+        expectedRotatedNumber.rightRotated = 0
+
+        assertEquals(expectedRotatedNumber.leftRotated, rotationResult.leftRotated)
+        assertEquals(expectedRotatedNumber.rightRotated, rotationResult.rightRotated)
+
+        rotationResult = bitwiseOperators.bitwiseRotate(100, 3)
+        expectedRotatedNumber.leftRotated = 800
+        expectedRotatedNumber.rightRotated = -2147483636
+
+        assertEquals(expectedRotatedNumber.leftRotated, rotationResult.leftRotated)
+        assertEquals(expectedRotatedNumber.rightRotated, rotationResult.rightRotated)
+    }
 
 }
