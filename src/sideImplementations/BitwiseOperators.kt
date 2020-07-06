@@ -1,5 +1,7 @@
 package sideImplementations
 
+import java.lang.StringBuilder
+
 class BitwiseOperators {
 
     fun isTheLeastSignificantBitSet(number: Int): Boolean {
@@ -153,6 +155,21 @@ class BitwiseOperators {
             leftRotated = number
             rightRotated = number
         }
+    }
+
+    fun convertDecimalToBinaryArrayFrom(number: Int): Array<Int> {
+        var resultArray = arrayOf<Int>()
+        val msb = 1 shl (Int.SIZE_BITS - 1)
+
+        for(i in 0 until Int.SIZE_BITS) {
+            resultArray += if((number shl i) and msb == msb) {
+                1
+            } else {
+                0
+            }
+        }
+
+        return resultArray
     }
 
 }

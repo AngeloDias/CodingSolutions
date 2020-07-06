@@ -1,5 +1,6 @@
 package tests
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -186,6 +187,24 @@ class BitwiseOperatorsTest {
 
         assertEquals(expectedRotatedNumber.leftRotated, rotationResult.leftRotated)
         assertEquals(expectedRotatedNumber.rightRotated, rotationResult.rightRotated)
+    }
+    
+    @Test
+    fun convertDecimalToBinaryArrayFromTest() {
+        var arrayNumber = bitwiseOperators.convertDecimalToBinaryArrayFrom(22)
+        var expectedArray = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0)
+
+        Assertions.assertArrayEquals(expectedArray, arrayNumber)
+
+        arrayNumber = bitwiseOperators.convertDecimalToBinaryArrayFrom(290761468)
+        expectedArray = arrayOf(0,0,0,1,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,0,0)
+
+        Assertions.assertArrayEquals(expectedArray, arrayNumber)
+
+        arrayNumber = bitwiseOperators.convertDecimalToBinaryArrayFrom(1434083083)
+        expectedArray = arrayOf(0,1,0,1,0,1,0,1,0,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1,0,0,0,0,1,0,1,1)
+
+        Assertions.assertArrayEquals(expectedArray, arrayNumber)
     }
 
 }
