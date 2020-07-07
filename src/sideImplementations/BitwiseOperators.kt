@@ -172,4 +172,18 @@ class BitwiseOperators {
         return resultArray
     }
 
+    fun swap(numberA: Int, andNumberB: Int): Pair<Int, Int> {
+        var a = numberA
+        var b = andNumberB
+
+        a = a xor b
+        b = b xor a
+        a = a xor b
+
+        return Pair(a, b)
+    }
+
+    fun isEvenThe(number: Int): Boolean {
+        return !isTheLeastSignificantBitSet(number)
+    }
 }

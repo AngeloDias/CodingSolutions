@@ -207,4 +207,28 @@ class BitwiseOperatorsTest {
         Assertions.assertArrayEquals(expectedArray, arrayNumber)
     }
 
+    @Test
+    fun swapTest() {
+        var pair = bitwiseOperators.swap(22, 65)
+
+        assertEquals(65, pair.first)
+        assertEquals(22, pair.second)
+
+        pair = bitwiseOperators.swap(0, -1)
+
+        assertEquals(-1, pair.first)
+        assertEquals(0, pair.second)
+    }
+
+    @Test
+    fun isEvenTheTest() {
+        assertTrue(bitwiseOperators.isEvenThe(12))
+        assertTrue(bitwiseOperators.isEvenThe(-12))
+        assertTrue(bitwiseOperators.isEvenThe(0))
+
+        assertFalse(bitwiseOperators.isEvenThe(11))
+        assertFalse(bitwiseOperators.isEvenThe(-11))
+        assertFalse(bitwiseOperators.isEvenThe(-1))
+    }
+
 }
