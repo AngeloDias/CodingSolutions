@@ -4,20 +4,17 @@ class RotateMatrix {
 
     fun rotateMatrix90Degrees(matrix: Array<Array<Int>>): Array<Array<Int>> {
         val n = matrix.size
-        var top = arrayOf<Int>()
-        var right = arrayOf<Int>()
-        var left = arrayOf<Int>()
-        var bottom = arrayOf<Int>()
 
-        for (i in 0 until n-2) {
-            for (j in 0 until n-1-i) {
-                var invIndex = n-1
+        for (i in 0 until n/2) { // represents the matrix's rings
+            var invIndex = n-1-i
 
-                top += matrix[i][j]
-                right += matrix[j][n-1-i]
-                bottom += matrix[n-1-i][invIndex]
-                left += matrix[invIndex][i]
-                
+            for (j in i until n-1-i) {
+                val top = matrix[i][j]
+                matrix[i][j] = matrix[invIndex][i] // left to top
+                matrix[invIndex][i] = matrix[n-1-i][invIndex] // bottom to left
+                matrix[n-1-i][invIndex] = matrix[j][n-1-i] // right to bottom
+                matrix[j][n-1-i] = top // top to right
+
                 invIndex -= 1
             }
         }
