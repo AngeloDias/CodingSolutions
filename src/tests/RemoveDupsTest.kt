@@ -1,5 +1,6 @@
 package tests
 
+import Utils.Companion.SinglyLinkedList
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -67,8 +68,8 @@ class RemoveDupsTest {
 
     @Test
     fun removeDupsUsingPointersTest() {
-        val expected = LinkedList<Int>()
-        val tested = LinkedList<Int>()
+        val expected = SinglyLinkedList<Int>(0)
+        val tested = SinglyLinkedList<Int>(0)
 
         expected.add(7)
         expected.add(1)

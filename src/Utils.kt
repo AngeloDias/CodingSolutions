@@ -18,40 +18,12 @@ class Utils {
             return matrix
         }
 
-        class Node(var value: Int) {
-            var next: Node? = null
+        class Node<Int>(var value: Int) {
+            var next: Node<Int>? = null
         }
 
-        class SinglyLinkedList {
-            private var head: Node? = null
-
-            /**
-             * Used to get the head node from this list.
-             *
-             * @return The head node.
-             * */
-            fun first(): Node? {
-                return this.head
-            }
-
-            /**
-             * Responsible to return the last node in list.
-             *
-             * @return The last node.
-             * */
-            fun last(): Node? {
-                var node = head
-
-                return if (node != null){
-                    while (node?.next != null) {
-                        node = node.next
-                    }
-
-                    node
-                } else {
-                    null
-                }
-            }
+        class SinglyLinkedList<Int>(override val size: kotlin.Int) : Collection<Int> {
+            var head: Node<Int>? = null
 
             /**
              * Iterate through the list until to find the last not null and add new node,
@@ -79,7 +51,7 @@ class Utils {
              * @param value The value to be removed from the list if is contained in it.
              * @return The node removed from the list.
              * */
-            fun removeFirstToMatch(value: Int): Node? {
+            fun removeFirstToMatch(value: Int): Node<Int>? {
                 return if(head == null) {
                     head
                 } else {
@@ -107,7 +79,7 @@ class Utils {
              *
              * @return The removed last node from list.
              * */
-            fun removeLast(): Node? {
+            fun removeLast(): Node<Int>? {
                 var node = head
 
                 return if (node != null){
@@ -130,6 +102,87 @@ class Utils {
                 } else {
                     null
                 }
+            }
+
+            /**
+             * Do the head node be null.
+             * */
+            fun clear() {
+                head = null
+            }
+
+            /**
+             * It receives an instance of [SinglyLinkedList] to add values to this list and iterate through
+             * each element getting its value and creating a new [Node] in list.
+             *
+             * @param listToAdd The list to copied to this list.
+             * @return True if the [listToAdd] has at least one element to copy, false otherwise.
+             * */
+            fun addAll(listToAdd: SinglyLinkedList<Int>): Boolean {
+                if(listToAdd.head == null) {
+                    return false
+                }
+
+                for(element in listToAdd) {
+                    add(element)
+                }
+
+                return true
+            }
+
+            override fun contains(element: Int): Boolean {
+                if(head == null) {
+                    return false
+                }
+                val iterator = iterator()
+
+                while (iterator.hasNext()) {
+                    if(iterator.next() == element) {
+                        return true
+                    }
+                }
+
+                return false
+            }
+
+            override fun containsAll(elements: Collection<Int>): Boolean {
+                val iterator = iterator()
+
+                while (iterator.hasNext()) {
+                    if(!contains(iterator.next())) {
+                        return false
+                    }
+                }
+
+                return true
+            }
+
+            override fun isEmpty(): Boolean {
+                return head == null
+            }
+
+            override fun iterator(): Iterator<Int> {
+                return SinglyIterator(this)
+            }
+
+        }
+
+        class SinglyIterator<Int>(singlyLinkedList: SinglyLinkedList<Int>) : Iterator<Int> {
+            var current: Node<Int>? = null
+
+            init {
+                current = singlyLinkedList.head
+            }
+
+            override fun hasNext(): Boolean {
+                return current != null
+            }
+
+            override fun next(): Int {
+                val value = current!!.value
+                current = current!!.next
+
+                return value
             }
 
         }

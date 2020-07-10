@@ -1,8 +1,9 @@
 package secondChapter
 
 import java.util.LinkedList
+import Utils.Companion.SinglyLinkedList
 
-class RemoveDups() {
+class RemoveDups {
 
     fun removeDupsUsingHashTable(unsortedList: LinkedList<Int>): LinkedList<Int> {
         val mapMemory = HashMap<Int,Int>()
@@ -18,25 +19,20 @@ class RemoveDups() {
         return dupsRemoved
     }
 
-    fun removeDupsUsingPointers(unsortedList: LinkedList<Int>): LinkedList<Int> {
+    fun removeDupsUsingPointers(linkedList: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
         var runner: Int
 
-        for(current in unsortedList.indices) {
+        for(current in linkedList.indices) {
             runner = current + 1
 
-            while(runner < unsortedList.size) {
-                if(unsortedList[runner] == unsortedList[current]) {
-                    unsortedList.removeAt(runner)
-
-                    runner += 1
-                }
+            while(runner < linkedList.size) {
 
                 runner += 1
             }
 
         }
 
-        return unsortedList
+        return linkedList
     }
 
 }
