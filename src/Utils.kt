@@ -145,6 +145,12 @@ class Utils {
                 return false
             }
 
+            /**
+             * Get the [iterator] and iterate through the collection checking if each element is contained
+             * in this collection.
+             *
+             * @return If all elements from elements are the same in this collection.
+             * */
             override fun containsAll(elements: Collection<Int>): Boolean {
                 val iterator = iterator()
 
@@ -157,10 +163,16 @@ class Utils {
                 return true
             }
 
+            /**
+             * @return If the head is null.
+             * */
             override fun isEmpty(): Boolean {
                 return head == null
             }
 
+            /**
+             * @return This class Iterator instance.
+             * */
             override fun iterator(): Iterator<Int> {
                 return SinglyIterator(this)
             }
@@ -174,10 +186,20 @@ class Utils {
                 current = singlyLinkedList.head
             }
 
+            /**
+             * Check if the current [Node] isn't null.
+             *
+             * @return True if current isn't null, false otherwise.
+             * */
             override fun hasNext(): Boolean {
                 return current != null
             }
 
+            /**
+             * Get the current value and make the current node be the next.
+             *
+             * @return The value of the next [Node].
+             * */
             override fun next(): Int {
                 val value = current!!.value
                 current = current!!.next

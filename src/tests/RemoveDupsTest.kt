@@ -82,6 +82,7 @@ class RemoveDupsTest {
         expected.add(84)
         expected.add(112)
         expected.add(1174)
+        expected.add(11747)
 
         tested.addAll(expected)
         tested.add(11)
@@ -97,9 +98,11 @@ class RemoveDupsTest {
         tested.clear()
 
         expected.add(11)
+        expected.add(11552)
 
         tested.addAll(expected)
         tested.add(11)
+        tested.add(1188)
 
         assertEquals(expected, removeDups.removeDupsUsingPointers(tested))
 
@@ -109,6 +112,7 @@ class RemoveDupsTest {
         expected.add(11)
         expected.add(111)
         expected.add(177)
+        expected.add(1133)
 
         tested.addAll(expected)
 
