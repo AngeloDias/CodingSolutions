@@ -24,30 +24,24 @@ class RemoveDups {
      * */
     fun removeDupsUsingPointers(linkedList: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
         val iterator = linkedList.iterator()
-        var runner = linkedList.head
-        var reachedTheEnd = false
-        var currentValue = 0
-        var previous = runner
+        var current = linkedList.head
 
         while(iterator.hasNext()) {
-            if(!reachedTheEnd && runner!!.next!!.next == null) {
-                runner = linkedList.head!!.next
-                reachedTheEnd = true
-            }
+            var runner = current
 
-            currentValue = iterator.next()
+            while (runner!!.next != null) {
+                if(current!!.value == runner.next!!.value) {
 
-            if(reachedTheEnd) {
-                if(currentValue == runner!!.value) {
-                    previous!!.next = runner.next
+                    runner.next = runner.next!!.next
+                } else {
+                    runner = runner.next
                 }
 
-                runner = runner.next
-            } else {
-                runner = runner!!.next!!.next
             }
 
-            previous = runner
+            current = current!!.next
+
+            iterator.next()
         }
 
         return linkedList
