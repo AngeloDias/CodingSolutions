@@ -20,6 +20,43 @@ internal class UtilsTest {
     }
 
     @Test
+    fun sizeTest() {
+        assertEquals(0, singlyLinkedList.size)
+
+        singlyLinkedList.add(2)
+
+        assertEquals(1, singlyLinkedList.size)
+
+        singlyLinkedList.removeLast()
+
+        assertEquals(0, singlyLinkedList.size)
+
+        singlyLinkedList.add(8)
+        singlyLinkedList.add(74)
+        singlyLinkedList.add(30)
+        singlyLinkedList.add(28)
+        singlyLinkedList.removeFirstToMatch(30)
+
+        assertEquals(3, singlyLinkedList.size)
+
+        singlyLinkedList.add(54)
+        singlyLinkedList.removeLast()
+
+        assertEquals(3, singlyLinkedList.size)
+
+        singlyLinkedList.clear()
+        singlyLinkedList.add(8)
+        singlyLinkedList.add(74)
+        singlyLinkedList.add(30)
+        singlyLinkedList.add(28)
+        singlyLinkedList.removeLast()
+        singlyLinkedList.add(888)
+        singlyLinkedList.add(0)
+
+        assertEquals(5, singlyLinkedList.size)
+    }
+
+    @Test
     fun isEmptyTest() {
         assertTrue(singlyLinkedList.isEmpty())
 

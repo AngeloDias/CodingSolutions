@@ -22,7 +22,7 @@ class Utils {
             var next: Node<Int>? = null
         }
 
-        class SinglyLinkedList<Int>(override val size: kotlin.Int) : Collection<Int> {
+        class SinglyLinkedList<Int>(override var size: kotlin.Int) : Collection<Int> {
             var head: Node<Int>? = null
 
             /**
@@ -43,6 +43,8 @@ class Utils {
 
                     node?.next = Node(value)
                 }
+
+                size += 1
             }
 
             /**
@@ -61,6 +63,7 @@ class Utils {
                     while (node?.next != null) {
                         if(node.value == value) {
                             previous?.next = node.next
+                            size -= 1
 
                             return node
                         }
@@ -85,6 +88,7 @@ class Utils {
                 return if (node != null){
                     if(node.next == null){
                         head = null
+                        size -= 1
 
                         return head
                     }
@@ -97,6 +101,7 @@ class Utils {
                     }
 
                     previous?.next = node.next
+                    size -= 1
 
                     node
                 } else {
@@ -109,6 +114,7 @@ class Utils {
              * */
             fun clear() {
                 head = null
+                size = 0
             }
 
             /**
