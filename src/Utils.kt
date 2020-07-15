@@ -183,6 +183,26 @@ class Utils {
                 return SinglyIterator(this)
             }
 
+            fun theNodeAt(index: kotlin.Int): Node<Int>? {
+                if(this.isEmpty() || index < 0 || index > this.size) {
+                    return null
+                }
+
+                var count = 0
+                var node = this.head
+
+                while(node!!.next != null) {
+                    if(count == index) {
+                        return node
+                    }
+
+                    node = node.next
+                    count += 1
+                }
+
+                return null
+            }
+
         }
 
         class SinglyIterator<Int>(singlyLinkedList: SinglyLinkedList<Int>) : Iterator<Int> {

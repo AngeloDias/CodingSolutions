@@ -31,4 +31,34 @@ class ReturnKthToLast {
         return recursivelyReturnThe(kthToLastIn - 1, temp)
     }
 
+    fun iterativelyReturnThe(kthToLastIn: Int, linkedList: SinglyLinkedList<Int>): Int {
+        if(kthToLastIn < 1) {
+            throw Error("The \"kthToLastIn\" must be greater than 0.")
+        }
+
+        if(kthToLastIn > linkedList.size) {
+            throw Error("The \"kthToLastIn\" can't be greater than the elements amount in list.")
+        }
+
+        var p1 = linkedList.head
+        var p2 = linkedList.head
+        var count = 0
+
+        while(count < kthToLastIn) {
+            if(p1 == null) {
+                throw Error("Out of bounds")
+            }
+
+            p1 = p1.next
+            count += 1
+        }
+
+        while(p1 != null) {
+            p1 = p1.next
+            p2 = p2!!.next
+        }
+
+        return p2!!.value
+    }
+
 }

@@ -75,4 +75,31 @@ class ReturnKthToLastTest {
         assertEquals(1, returnKthToLast.recursivelyReturnThe(2, tested)!!.value)
     }
 
+    @Test
+    fun iterativelyReturnTheTest() {
+        val tested = SinglyLinkedList<Int>(0)
+
+        tested.add(7)
+        tested.add(1)
+        tested.add(3)
+        tested.add(4)
+        tested.add(71)
+        tested.add(11)
+        tested.add(22)
+        tested.add(8)
+        tested.add(84)
+        tested.add(112)
+        tested.add(1174)
+        tested.add(11747)
+
+        assertEquals(112, returnKthToLast.iterativelyReturnThe(3, tested))
+
+        tested.clear()
+        tested.add(7)
+        tested.add(1)
+        tested.add(3)
+
+        assertEquals(1, returnKthToLast.iterativelyReturnThe(2, tested))
+    }
+
 }
