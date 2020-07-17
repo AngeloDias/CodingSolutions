@@ -77,6 +77,37 @@ internal class UtilsTest {
         MatcherAssert.assertThat(singlyLinkedList, CoreMatchers.hasItems(5))
         MatcherAssert.assertThat(singlyLinkedList, CoreMatchers.hasItems(7,5))
         MatcherAssert.assertThat(singlyLinkedList, CoreMatchers.hasItems(7,8,5))
+
+        singlyLinkedList.clear()
+        singlyLinkedList.add(7)
+
+        MatcherAssert.assertThat(singlyLinkedList, CoreMatchers.hasItems(7))
+    }
+
+    @Test
+    fun insertBeforeHeadTest() {
+        val expected = SinglyLinkedList<Int>(0)
+        val toInsert = -98
+
+        singlyLinkedList.add(5)
+        singlyLinkedList.add(7)
+        singlyLinkedList.add(8)
+
+        expected.add(toInsert)
+        expected.addAll(singlyLinkedList)
+
+        singlyLinkedList.insertBeforeHead(toInsert)
+
+        Assertions.assertArrayEquals(expected.toTypedArray(), singlyLinkedList.toTypedArray())
+
+        singlyLinkedList.clear()
+        expected.clear()
+
+        expected.add(toInsert)
+
+        singlyLinkedList.insertBeforeHead(toInsert)
+
+        Assertions.assertArrayEquals(expected.toTypedArray(), singlyLinkedList.toTypedArray())
     }
 
     @Test

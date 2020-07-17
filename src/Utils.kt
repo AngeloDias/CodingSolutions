@@ -47,6 +47,15 @@ class Utils {
                 size += 1
             }
 
+            fun insertBeforeHead(value: Int) {
+                val node = Node(value)
+
+                node.next = head
+                head = node
+
+                size += 1
+            }
+
             /**
              * Removes the first node to match the value provided.
              *
