@@ -1,6 +1,7 @@
 package secondChapter
 
 import Utils.Companion.SinglyLinkedList
+import Utils.Companion.Node
 import kotlin.math.pow
 
 class SumLists {
@@ -41,6 +42,12 @@ class SumLists {
         return sumList
     }
 
+    fun sumRecursivelyReversed(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
+        val sumList = SinglyLinkedList<Int>(0)
+
+        return sumList
+    }
+
     fun sumReversed(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
         val sumList: SinglyLinkedList<Int>
         val transformedA = transformReversed(listToNumber = listA)
@@ -54,11 +61,6 @@ class SumLists {
             from(transformedA.first + transformedB.first, powerB)
         }
 
-        sumList.map {
-            print("Value: $it\n")
-        }
-        print("\n")
-
         return sumList
     }
 
@@ -66,7 +68,7 @@ class SumLists {
         return (10.0.pow(byPowerValue)).toInt()
     }
 
-    fun sum(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
+    fun sumRegular(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
         val sumList = SinglyLinkedList<Int>(0)
         val transformedA = transform(listToNumber = listA)
         val transformedB = transform(withListB)
@@ -103,7 +105,7 @@ class SumLists {
         return Pair(number, power - 1)
     }
 
-    private fun from(numberToReversedList: Int, mPower: Int): SinglyLinkedList<Int> {
+    internal fun from(numberToReversedList: Int, mPower: Int): SinglyLinkedList<Int> {
         val sumList = SinglyLinkedList<Int>(0)
         var power = mPower
         var numberToList = numberToReversedList
@@ -118,10 +120,9 @@ class SumLists {
             sumList.insertBeforeHead(digitToInsertInList)
 
             var diff = calcPowerOfTen(power + 1) - (digitToInsertInList * calcPowerOfTen(power))
-            diff = calcPowerOfTen(power) - diff
+            diff = calcPowerOfTen(power + 1) - diff
 
             numberToList -= diff
-
             power -= 1
         }
 
