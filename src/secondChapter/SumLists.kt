@@ -36,16 +36,35 @@ class SumLists {
         return sumList
     }
 
-    fun sumRegularSameSizeForBoth(listA: SinglyLinkedList<Int>, andListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
+    fun sumRecursivelyReversed(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
         val sumList = SinglyLinkedList<Int>(0)
+
+        recursiveSumReversedLists(listA.head, withListB.head, 0, sumList)
 
         return sumList
     }
 
-    fun sumRecursivelyReversed(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
-        val sumList = SinglyLinkedList<Int>(0)
+    fun recursiveSumReversedLists(nodeA: Node<Int>?, nodeB: Node<Int>?, remainder: Int, sumList: SinglyLinkedList<Int>): Int {
 
-        return sumList
+        if(nodeA == null && nodeB == null) {
+            if(remainder > 0) {
+                sumList.add(remainder)
+            }
+
+            return -1
+        }
+
+        var currValue = (nodeA?.value ?: 0) + (nodeB?.value ?: 0) + remainder
+        var r = 0
+
+        if (currValue >= 10) {
+            currValue -= 10
+            r = 1
+        }
+
+        sumList.add(currValue)
+
+        return recursiveSumReversedLists(nodeA?.next, nodeB?.next, r, sumList)
     }
 
     fun sumReversed(listA: SinglyLinkedList<Int>, withListB: SinglyLinkedList<Int>): SinglyLinkedList<Int> {
