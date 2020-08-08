@@ -244,6 +244,16 @@ class Utils {
 
         }
 
+        fun sumOfNTermsInArithmeticSequence(first: Int, last: Int): Int {
+            var n = 0
+
+            first.rangeTo(last).forEach { _ ->
+                n += 1
+            }
+
+            return (n * (first + last)) / 2
+        }
+
     }
 
 }
