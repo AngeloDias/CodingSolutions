@@ -1,6 +1,6 @@
 package secondChapter
 
-import Utils.Companion.SinglyLinkedList
+import utils.SinglyLinkedList
 
 class Partition {
 

@@ -1,7 +1,7 @@
 package secondChapter
 
-import Utils.Companion.SinglyLinkedList
-import Utils.Companion.Node
+import utils.Node
+import utils.SinglyLinkedList
 
 class ReturnKthToLast {
 

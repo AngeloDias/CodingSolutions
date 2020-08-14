@@ -1,19 +1,13 @@
 package tests
 
-import Utils.Companion.SinglyLinkedList
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers.contains
-import org.hamcrest.Matchers.containsInAnyOrder
-import org.hamcrest.collection.IsIterableContainingInAnyOrder
-import org.hamcrest.core.IsIterableContaining
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import secondChapter.RemoveDups
+import utils.SinglyLinkedList
 import java.util.*
-import kotlin.test.assertSame
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RemoveDupsTest {
@@ -99,13 +93,14 @@ class RemoveDupsTest {
         tested.add(11)
         tested.add(3)
 
-        Assertions.assertArrayEquals(expected.toTypedArray(), tested.toTypedArray())
+        Assertions.assertArrayEquals(expected.toTypedArray(), removeDups.removeDupsUsingPointers(tested).toTypedArray())
 
         expected.clear()
         tested.clear()
 
         expected.add(11)
         expected.add(11552)
+        expected.add(1188)
 
         tested.addAll(expected)
         tested.add(11)

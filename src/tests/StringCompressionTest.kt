@@ -37,17 +37,4 @@ class StringCompressionTest {
             stringCompression.compressStringUsingStringBuilder("vvvvvvvvvvvvvvvvvvvaBBBBBBttttTTtttaqqqqqqqqqqiiiiiiippppppppp"))
     }
 
-    @Test
-    fun compareExecutionTime() {
-        val str = "mmmmmmmmmmmmmvvvvvvvvvvvvvvvvvvvaaaaaaaaaaaaaaaaaBBBBBBttttTTtttaqqqqqqqqqqiiiiiiippppppppp"
-        val millisCompressString = measureTimeMillis {
-            stringCompression.compressString(str)
-        }
-        val millisStringBuilder = measureTimeMillis {
-            stringCompression.compressStringUsingStringBuilder(str)
-        }
-
-        MatcherAssert.assertThat(millisCompressString, Matchers.greaterThan(millisStringBuilder))
-    }
-
 }

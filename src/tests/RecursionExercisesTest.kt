@@ -6,6 +6,7 @@ import sideImplementations.RecursionExercises.Companion.findPowerOf
 import sideImplementations.RecursionExercises.Companion.printAllEvenOrOddNaturalBetween
 import sideImplementations.RecursionExercises.Companion.printAllNaturalBetween
 import sideImplementations.RecursionExercises.Companion.theSumOfNumbersFrom
+import utils.Functions
 import kotlin.test.assertEquals
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -56,19 +57,19 @@ class RecursionExercisesTest {
     fun printSumOfNumbersFromTest() {
         var first = 1
         var last = 10
-        var expected = Utils.sumOfNTermsInArithmeticSequence(first, last)
+        var expected = Functions.sumOfNTermsInArithmeticSequence(first, last)
 
         assertEquals(expected, theSumOfNumbersFrom(first, last))
 
         first = -9
         last = 30
-        expected = Utils.sumOfNTermsInArithmeticSequence(first, last)
+        expected = Functions.sumOfNTermsInArithmeticSequence(first, last)
 
         assertEquals(expected, theSumOfNumbersFrom(first, last))
 
         first = -9
         last = -30
-        expected = Utils.sumOfNTermsInArithmeticSequence(first, last)
+        expected = Functions.sumOfNTermsInArithmeticSequence(first, last)
 
         assertEquals(expected, theSumOfNumbersFrom(first, last))
     }

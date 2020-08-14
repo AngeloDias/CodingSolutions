@@ -1,10 +1,10 @@
 package tests
 
-import Utils.Companion.SinglyLinkedList
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import secondChapter.ReturnKthToLast
+import utils.SinglyLinkedList
 import kotlin.test.assertEquals
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

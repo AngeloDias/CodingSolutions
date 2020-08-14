@@ -1,11 +1,11 @@
 package tests
 
-import Utils.Companion.SinglyLinkedList
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.not
 import org.hamcrest.MatcherAssert
 import org.hamcrest.collection.IsEmptyCollection
 import org.junit.jupiter.api.*
+import utils.SinglyLinkedList
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

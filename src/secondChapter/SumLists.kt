@@ -1,7 +1,7 @@
 package secondChapter
 
-import Utils.Companion.SinglyLinkedList
-import Utils.Companion.Node
+import utils.Node
+import utils.SinglyLinkedList
 import kotlin.math.pow
 
 class SumLists {

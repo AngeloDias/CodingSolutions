@@ -1,7 +1,7 @@
 package secondChapter
 
 import java.util.LinkedList
-import Utils.Companion.SinglyLinkedList
+import utils.SinglyLinkedList
 
 class RemoveDups {
 

@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import secondChapter.DeleteMiddleNode
-import Utils.Companion.SinglyLinkedList
 import org.junit.jupiter.api.Assertions
+import utils.SinglyLinkedList
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class DeleteMiddleNodeTest {
