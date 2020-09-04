@@ -46,6 +46,14 @@ class RecursionExercises {
             return theSumOfNumbersFrom(numberA + 1, toNumberB) + numberA
         }
 
+        fun findTheReverseNumber(number: Int, reverse: Int): Int {
+            if(number == 0) {
+                return number
+            }
+
+            return (reverse * 10) + findTheReverseNumber(number, (number % 10))
+        }
+
     }
 
 }
