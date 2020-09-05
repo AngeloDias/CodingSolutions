@@ -60,6 +60,32 @@ class RecursionExercises {
             return reverseTheNumber(number / 10, result)
         }
 
+        fun isPalindromeThe(number: Int): Boolean {
+            return number == findTheReverseNumber(number)
+        }
+
+        fun sumOfDigitsIn(number: Int): Int {
+            var natural = number
+
+            if(natural < 0) {
+                natural *= -1
+            }
+
+            if (natural / 10 == 0) {
+                return natural
+            }
+
+            return (natural % 10) + sumOfDigitsIn(natural / 10)
+        }
+
+        fun factorialOf(number: Int): Int {
+            if(number <= 1) {
+                return 1
+            }
+
+            return number * factorialOf(number - 1)
+        }
+
     }
 
 }

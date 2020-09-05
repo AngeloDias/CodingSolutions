@@ -4,6 +4,16 @@ class Functions {
 
     companion object {
 
+        fun iterativeFactorial(number: Int): Int {
+            var factorial = 1
+
+            for(i in number downTo 1) {
+                factorial *= i
+            }
+
+            return factorial
+        }
+
         fun generateMatrixOfInt(n: Int, m: Int): Array<Array<Int>> {
             var matrix = arrayOf<Array<Int>>()
 
