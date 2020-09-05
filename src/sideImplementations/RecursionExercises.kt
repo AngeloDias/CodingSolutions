@@ -46,12 +46,18 @@ class RecursionExercises {
             return theSumOfNumbersFrom(numberA + 1, toNumberB) + numberA
         }
 
-        fun findTheReverseNumber(number: Int, reverse: Int): Int {
-            if(number == 0) {
-                return number
+        fun findTheReverseNumber(number: Int): Int {
+            return reverseTheNumber(number, 0)
+        }
+
+        private fun reverseTheNumber(number: Int, reverse: Int): Int {
+            val result = (reverse * 10) + (number % 10)
+
+            if(number / 10 == 0) {
+                return result
             }
 
-            return (reverse * 10) + findTheReverseNumber(number, (number % 10))
+            return reverseTheNumber(number / 10, result)
         }
 
     }

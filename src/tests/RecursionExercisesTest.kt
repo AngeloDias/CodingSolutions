@@ -2,6 +2,7 @@ package tests
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import sideImplementations.RecursionExercises
 import sideImplementations.RecursionExercises.Companion.findPowerOf
 import sideImplementations.RecursionExercises.Companion.printAllEvenOrOddNaturalBetween
 import sideImplementations.RecursionExercises.Companion.printAllNaturalBetween
@@ -72,6 +73,29 @@ class RecursionExercisesTest {
         expected = Functions.sumOfNTermsInArithmeticSequence(first, last)
 
         assertEquals(expected, theSumOfNumbersFrom(first, last))
+    }
+
+    @Test
+    fun findTheReverseNumberTest() {
+        var number = "12345"
+
+        assertEquals(number.reversed().toInt(), RecursionExercises.findTheReverseNumber(number.toInt()))
+
+        number = "78451221"
+
+        assertEquals(number.reversed().toInt(), RecursionExercises.findTheReverseNumber(number.toInt()))
+
+        number = "1"
+
+        assertEquals(number.reversed().toInt(), RecursionExercises.findTheReverseNumber(number.toInt()))
+
+        number = "10001"
+
+        assertEquals(number.reversed().toInt(), RecursionExercises.findTheReverseNumber(number.toInt()))
+
+        number = "1001"
+
+        assertEquals(number.reversed().toInt(), RecursionExercises.findTheReverseNumber(number.toInt()))
     }
 
 }
