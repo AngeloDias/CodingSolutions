@@ -8,6 +8,7 @@ import sideImplementations.RecursionExercises.Companion.printAllEvenOrOddNatural
 import sideImplementations.RecursionExercises.Companion.printAllNaturalBetween
 import sideImplementations.RecursionExercises.Companion.theSumOfNumbersFrom
 import utils.Functions
+import kotlin.system.measureTimeMillis
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -144,6 +145,108 @@ class RecursionExercisesTest {
         number = -5
 
         assertEquals(Functions.iterativeFactorial(number), RecursionExercises.factorialOf(number))
+    }
+
+    @Test
+    fun findFibonacciTermByTest() {
+        var resultingFibonacci: Int
+        var expectedFibonacci: Int
+
+        var number = 1
+        var recursiveFibonacciTime = measureTimeMillis {
+            resultingFibonacci = RecursionExercises.findFibonacciTermBy(number)
+        }
+        var expectedFibonacciTime = measureTimeMillis {
+            expectedFibonacci = Functions.iterativeFibonacci(number)
+        }
+
+        print("Number: $number\n")
+        print("Recursive time: $recursiveFibonacciTime\nIterative time: $expectedFibonacciTime")
+        print("\n")
+        print("\n")
+
+        assertEquals(expectedFibonacci, resultingFibonacci)
+
+        number = 10
+
+        recursiveFibonacciTime = measureTimeMillis {
+            resultingFibonacci = RecursionExercises.findFibonacciTermBy(number)
+        }
+        expectedFibonacciTime = measureTimeMillis {
+            expectedFibonacci = Functions.iterativeFibonacci(number)
+        }
+
+        print("Number: $number\n")
+        print("Recursive time: $recursiveFibonacciTime\nIterative time: $expectedFibonacciTime")
+        print("\n")
+        print("\n")
+
+        assertEquals(expectedFibonacci, resultingFibonacci)
+
+        number = 2
+
+        recursiveFibonacciTime = measureTimeMillis {
+            resultingFibonacci = RecursionExercises.findFibonacciTermBy(number)
+        }
+        expectedFibonacciTime = measureTimeMillis {
+            expectedFibonacci = Functions.iterativeFibonacci(number)
+        }
+
+        print("Number: $number\n")
+        print("Recursive time: $recursiveFibonacciTime\nIterative time: $expectedFibonacciTime")
+        print("\n")
+        print("\n")
+
+        assertEquals(expectedFibonacci, resultingFibonacci)
+
+        number = 3
+
+        recursiveFibonacciTime = measureTimeMillis {
+            resultingFibonacci = RecursionExercises.findFibonacciTermBy(number)
+        }
+        expectedFibonacciTime = measureTimeMillis {
+            expectedFibonacci = Functions.iterativeFibonacci(number)
+        }
+
+        print("Number: $number\n")
+        print("Recursive time: $recursiveFibonacciTime\nIterative time: $expectedFibonacciTime")
+        print("\n")
+        print("\n")
+
+        assertEquals(expectedFibonacci, resultingFibonacci)
+
+        number = 45
+
+        recursiveFibonacciTime = measureTimeMillis {
+            resultingFibonacci = RecursionExercises.findFibonacciTermBy(number)
+        }
+        expectedFibonacciTime = measureTimeMillis {
+            expectedFibonacci = Functions.iterativeFibonacci(number)
+        }
+
+        print("Number: $number\n")
+        print("Recursive time: $recursiveFibonacciTime\nIterative time: $expectedFibonacciTime")
+
+        assertEquals(expectedFibonacci, resultingFibonacci)
+    }
+
+    @Test
+    fun findGreatestCommonDivisorTest() {
+        assertEquals(4, RecursionExercises.findGreatestCommonDivisor(12, 8))
+        assertEquals(4, RecursionExercises.findGreatestCommonDivisor(8, 12))
+        assertEquals(4, RecursionExercises.findGreatestCommonDivisor(4, 4))
+        assertEquals(4, RecursionExercises.findGreatestCommonDivisor(8, 4))
+        assertEquals(1, RecursionExercises.findGreatestCommonDivisor(8, 17))
+        assertEquals(1, RecursionExercises.findGreatestCommonDivisor(8, 7))
+        assertEquals(2, RecursionExercises.findGreatestCommonDivisor(26, 12))
+    }
+
+    @Test
+    fun findLeastCommonMultipleTest() {
+        assertEquals(24, RecursionExercises.findLeastCommonMultiple(12,8))
+        assertEquals(4, RecursionExercises.findLeastCommonMultiple(4, 4))
+        assertEquals(56, RecursionExercises.findLeastCommonMultiple(7,8))
+        assertEquals(156, RecursionExercises.findLeastCommonMultiple(12,26))
     }
 
 }

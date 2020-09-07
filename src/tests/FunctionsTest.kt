@@ -16,4 +16,14 @@ class FunctionsTest {
         assertEquals(1, Functions.iterativeFactorial(1))
         assertEquals(3628800, Functions.iterativeFactorial(10))
     }
+
+    @Test
+    fun iterativeFibonacciTest() {
+        assertEquals(1, Functions.iterativeFibonacci(1))
+        assertEquals(1, Functions.iterativeFibonacci(2))
+        assertEquals(2, Functions.iterativeFibonacci(3))
+        assertEquals(55, Functions.iterativeFibonacci(10))
+        assertEquals(2584, Functions.iterativeFibonacci(18))
+    }
+
 }

@@ -14,6 +14,23 @@ class Functions {
             return factorial
         }
 
+        fun iterativeFibonacci(nthTerm: Int): Int {
+            val fibonacciList = arrayOf(0, 1)
+            var i = 0
+            var temp: Int
+
+            while(i < (nthTerm - 1)) {
+                temp = fibonacciList[1]
+                fibonacciList[1] += fibonacciList[0]
+                fibonacciList[0] = temp
+
+                i++
+            }
+
+
+            return fibonacciList[1]
+        }
+
         fun generateMatrixOfInt(n: Int, m: Int): Array<Array<Int>> {
             var matrix = arrayOf<Array<Int>>()
 

@@ -86,6 +86,37 @@ class RecursionExercises {
             return number * factorialOf(number - 1)
         }
 
+        fun findFibonacciTermBy(number: Int): Int {
+            if(number <= 2) {
+                return 1
+            }
+
+            return findFibonacciTermBy(number - 1) + findFibonacciTermBy(number - 2)
+        }
+
+        fun findGreatestCommonDivisor(a: Int, b: Int): Int{
+            val smallest: Int = if(a < b) {
+                a
+            } else {
+                b
+            }
+
+            return gcd(a, b, smallest)
+        }
+
+        private fun gcd(a: Int, b: Int, factor: Int): Int {
+            if(factor == 1) {
+                return 1
+            } else if(a % factor == 0 && b % factor == 0) {
+                return factor
+            }
+
+            return gcd(a, b, factor - 1)
+        }
+
+        fun findLeastCommonMultiple(a: Int, b: Int): Int {
+            return (a * b) / findGreatestCommonDivisor(a, b)
+        }
     }
 
 }
