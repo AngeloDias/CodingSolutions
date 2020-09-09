@@ -57,6 +57,17 @@ class Functions {
             return (n * (first + last)) / 2
         }
 
+        fun generateIntArrayBy(size: Int, skipNumber: Int): IntArray {
+            val array = intArrayOf()
+
+            for(i in 0 until size) {
+                if(skipNumber != i+1)
+                    array[i] = i+1
+            }
+
+            return array
+        }
+
     }
 
 }
