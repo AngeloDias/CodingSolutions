@@ -59,5 +59,11 @@ class AlternateCountersValuesTest {
         expectedArray = intArrayOf(0, 0, 0, 0, 0, 0, 0)
 
         Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(7, array))
+
+        array = intArrayOf(3, 4, 4, 6, 1, 5, 4, 1, 1, 6, 4, 3, 3)
+        expectedArray = intArrayOf(5, 5, 7, 6, 5)
+
+        Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
     }
+
 }
