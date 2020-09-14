@@ -68,6 +68,10 @@ class Functions {
             return array
         }
 
+        fun calculateSequenceSum(a1: Int, a2: Int, n: Int): Double {
+            return n * ((a1 + a2.toDouble()) / 2)
+        }
+
     }
 
 }
