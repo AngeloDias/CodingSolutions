@@ -18,14 +18,6 @@ class CheckWhetherArrayIsPermutationTest {
 
         assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
 
-        array = intArrayOf(31, 33, 29, 28, 30)
-
-        assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
-
-        array = intArrayOf(31, 33, 29, 28, 30, 34, 32)
-
-        assertEquals(1, CheckWhetherArrayIsPermutation.solution(array))
-
         array = intArrayOf(2, 2)
 
         assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
@@ -43,6 +35,14 @@ class CheckWhetherArrayIsPermutationTest {
         assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
 
         array = intArrayOf(3, 1)
+
+        assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
+
+        array = intArrayOf(3, 2)
+
+        assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
+
+        array = intArrayOf(999999999)
 
         assertEquals(0, CheckWhetherArrayIsPermutation.solution(array))
     }
