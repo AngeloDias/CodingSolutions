@@ -14,6 +14,10 @@ class GenomicRangeQuery {
             return p
         }
 
+        private fun sumInSlice(p: IntArray, firstValInSlice: Int, lastValInSlice: Int): Int {
+            return p[lastValInSlice + 1] - p[firstValInSlice]
+        }
+
         private fun convertNucleotideTypeToImpactFactor(type: Char): Int {
 
             return when (type) {
