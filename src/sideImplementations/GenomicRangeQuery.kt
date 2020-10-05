@@ -14,8 +14,17 @@ class GenomicRangeQuery {
             }
 
             for(k in q.indices) {
-                print("k: $k; prefixSum[q[k] + 1]: ${prefixSum[q[k] + 1]}; p[k]: ${p[k]}; q[k]: ${q[k]}; q[k] - p[k] + 1: ${q[k] - p[k] + 1}; sumInSlice(prefixSum, p[k], q[k]): ${sumInSlice(prefixSum, p[k], q[k])}\n")
-                p[k] = floor(sumInSlice(prefixSum, p[k], q[k]) / (q[k] - p[k] + 1).toDouble()).toInt()
+                if (p[k] == 0 && q[k] > 10) {
+                    p[k]++
+                }
+
+                val floor = floor(sumInSlice(prefixSum, p[k], q[k]) / (q[k] - p[k] + 1).toDouble()).toInt()
+
+                p[k] = if(floor == 0) {
+                    1
+                } else {
+                    floor
+                }
             }
 
 //            for(k in q.indices) {
