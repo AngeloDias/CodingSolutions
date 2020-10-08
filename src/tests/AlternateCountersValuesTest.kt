@@ -20,6 +20,16 @@ class AlternateCountersValuesTest {
 
         Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
 
+        array = intArrayOf(6, 6, 6, 6)
+        expectedArray = intArrayOf(0, 0, 0, 0, 0)
+
+        Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
+
+        array = intArrayOf(1, 1, 1, 6)
+        expectedArray = intArrayOf(3, 3, 3, 3, 3)
+
+        Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
+
         array = intArrayOf(1, 2, 2, 2, 1, 2, 2)
         expectedArray = intArrayOf(2)
 
