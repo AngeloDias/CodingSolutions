@@ -5,21 +5,26 @@ class AlternateCountersValues {
     companion object {
         // avoid to use inner for
         fun solution(n: Int, a: IntArray): IntArray {
-            val counters = counting(a, n)
+            val localCounters = counting(a, n)
             var maxCounter = 0
+            val theCounters = IntArray(n)
+
+            for(k in localCounters.indices) {
+                val position = a[k] - 1
+            }
 
             for(i in a.indices) {
                 val position = a[i] - 1
 
-                if(counters[position] > maxCounter) {
-                    maxCounter = counters[position]
+                if(localCounters[position] > maxCounter) {
+                    maxCounter = localCounters[position]
                 }
 
                 if(a[i] == n+1) {
                 }
             }
 
-            return counters
+            return localCounters
         }
 
         private fun counting(elements: IntArray, withMaximumValue: Int): IntArray {
