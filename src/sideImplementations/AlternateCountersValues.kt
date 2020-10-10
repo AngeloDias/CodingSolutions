@@ -29,13 +29,15 @@ class AlternateCountersValues {
         }
 
         private fun counting(elements: IntArray, withMaximumValue: Int): IntArray {
-            val countElements = IntArray(withMaximumValue + 2)
+            val countElements = IntArray(withMaximumValue + 1)
 
-            for(i in 0 until countElements.size - 1) {
-                countElements[elements[i]]++
+            for(i in elements.indices) {
+                if(elements[i] < countElements.size) {
+                    countElements[elements[i]]++
 
-                // using the last position to save the sum of the values of the array
-                countElements[countElements.size - 1] += countElements[elements[i]]
+                    // using the last position to save the sum of the values of the array
+                    countElements[countElements.size - 1]++
+                }
             }
 
             return countElements

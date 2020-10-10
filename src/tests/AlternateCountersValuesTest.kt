@@ -10,13 +10,13 @@ class AlternateCountersValuesTest {
 
     @Test
     fun solutionTest() {
-        var array = intArrayOf(3, 4, 4, 6, 1, 4, 4)
-        var expectedArray = intArrayOf(3, 2, 2, 4, 2)
+        var array = intArrayOf(3, 4, 5, 6, 1, 4, 4)
+        var expectedArray = intArrayOf(3, 2, 2, 3, 3)
 
         Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
 
-        array = intArrayOf(3, 4, 4, 6, 1, 5, 4)
-        expectedArray = intArrayOf(3, 2, 2, 3, 3)
+        array = intArrayOf(3, 4, 4, 6, 1, 4, 4)
+        expectedArray = intArrayOf(3, 2, 2, 4, 2)
 
         Assertions.assertArrayEquals(expectedArray, AlternateCountersValues.solution(5, array))
 
