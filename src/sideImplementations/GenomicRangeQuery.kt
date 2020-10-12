@@ -8,6 +8,14 @@ class GenomicRangeQuery {
         fun solution(s: String, p: IntArray, q: IntArray): IntArray {
             val prefixSum = IntArray(s.length + 1)
 
+            if(s.length == 1) {
+                for(k in q.indices) {
+                    p[k] = convertNucleotideTypeToImpactFactor(s[k])
+                }
+
+                return p
+            }
+
             // calculate the prefix sum
             for(k in 1 until prefixSum.size) {
                 prefixSum[k] = prefixSum[k - 1] + convertNucleotideTypeToImpactFactor(s[k-1])

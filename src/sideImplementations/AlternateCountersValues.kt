@@ -4,6 +4,8 @@ class AlternateCountersValues {
 
     companion object {
         // avoid to use inner for
+        // my issue occurs when the operation "max counter" is asked
+        // How can I change all the numbers to max counter without using inner for?
         fun solution(n: Int, a: IntArray): IntArray {
             val localCounters = counting(a, n)
             var maxCounter = 0
@@ -43,4 +45,5 @@ class AlternateCountersValues {
             return countElements
         }
     }
+
 }
