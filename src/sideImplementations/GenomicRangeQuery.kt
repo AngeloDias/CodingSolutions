@@ -7,47 +7,39 @@ class GenomicRangeQuery {
     companion object {
         fun solution(s: String, p: IntArray, q: IntArray): IntArray {
             val prefixSum = IntArray(s.length + 1)
+            var smallest = 5
 
             if(s.length == 1) {
-                for(k in q.indices) {
-                    p[k] = convertNucleotideTypeToImpactFactor(s[k])
-                }
+                p[0] = convertNucleotideTypeToImpactFactor(s[0])
 
                 return p
             }
 
             // calculate the prefix sum
             for(k in 1 until prefixSum.size) {
-                prefixSum[k] = prefixSum[k - 1] + convertNucleotideTypeToImpactFactor(s[k-1])
+                val factor = convertNucleotideTypeToImpactFactor(s[k-1])
+
+                if (factor < smallest) {
+                    smallest = factor
+                }
+
+                prefixSum[k] = prefixSum[k - 1] + factor
             }
 
             for(k in q.indices) {
-                if (p[k] == 0 && q[k] > 10) {
-                    p[k]++
-                }
-
-                val floor = floor(sumInSlice(prefixSum, p[k], q[k]) / (q[k] - p[k] + 1).toDouble()).toInt()
-
-                p[k] = if(floor == 0) {
-                    1
+                if (p[k] == 0 && q[k] == 0) {
+                    p[k] = convertNucleotideTypeToImpactFactor(s[k])
                 } else {
-                    floor
+                    val floor = floor(sumInSlice(prefixSum, p[k], q[k]) / (q[k] - p[k] + (1/smallest)).toDouble()).toInt()
+
+                    p[k] = if (floor == 0) {
+                        1
+                    } else {
+                        floor
+                    }
+
                 }
             }
-
-//            for(k in q.indices) {
-//                var minimalFactor = 5
-//
-//                for(i in p[k] until q[k] + 1) {
-//                    val factor = convertNucleotideTypeToImpactFactor(s[i])
-//
-//                    if(factor < minimalFactor) {
-//                        minimalFactor = factor
-//                    }
-//                }
-//
-//                p[k] = minimalFactor
-//            }
 
             return p
         }
