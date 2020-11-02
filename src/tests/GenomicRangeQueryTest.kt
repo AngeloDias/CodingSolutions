@@ -59,6 +59,13 @@ class GenomicRangeQueryTest {
 
         Assertions.assertArrayEquals(expected, GenomicRangeQuery.solution(dnaSequence, p, q))
 
+        p = intArrayOf(0, 0, 1, 0, 1)
+        q = intArrayOf(0, 1, 1, 2, 2)
+        dnaSequence = "GTA"
+        expected = intArrayOf(3, 3, 4, 1, 1)
+
+        Assertions.assertArrayEquals(expected, GenomicRangeQuery.solution(dnaSequence, p, q))
+
         p = intArrayOf(0, 0, 1, 0, 3, 3, 0)
         q = intArrayOf(0, 1, 1, 5, 4, 6, 8)
         dnaSequence = "GTCTTACAG"
